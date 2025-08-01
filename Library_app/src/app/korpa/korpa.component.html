@@ -1,0 +1,40 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+    <h1>Korpa</h1>
+    <mat-table [dataSource]="korpaSource" matSort>
+    
+        
+        <ng-container matColumnDef="naziv">
+            <mat-header-cell *matHeaderCellDef >Naziv</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.naziv}}</mat-cell>
+        </ng-container>
+    
+        <ng-container matColumnDef="cena">
+            <mat-header-cell *matHeaderCellDef >Cena</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.cena | number }}</mat-cell>
+        </ng-container>
+    
+        
+        <ng-container matColumnDef="kvantitet">
+            <mat-header-cell *matHeaderCellDef >Kvantitet</mat-header-cell>
+            
+            <mat-cell *matCellDef="let element"><button [disabled]="isdisabled(element.id)"  (click)="kvantitetMinus(element.id)"> - </button> {{ element.kvantitet | number }} <button (click)="kvantitetPlus(element.id)"> + </button></mat-cell>
+            
+        </ng-container>
+        
+    
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef ></mat-header-cell>
+            <mat-cell *matCellDef="let element" fxLayoutGap="5px"><button mat-mini-fab color="primary" (click)="delItem(element.id)" ><mat-icon>delete</mat-icon></button>
+            </mat-cell>
+        </ng-container>
+    
+        
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    
+        <mat-row *matRowDef="let rows; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    
+    <h3>Ukupna cena: {{ukupnaCena()}}</h3>
+    <button mat-raised-button color="primary" [disabled]="isEmpty()" (click)="porudzbina()">Poruči</button>
+    </section>

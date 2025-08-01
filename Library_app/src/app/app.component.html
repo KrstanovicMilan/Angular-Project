@@ -1,0 +1,45 @@
+<mat-sidenav-container>
+
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a mat-list-item routerLink="/knjige" (click)="sidenav.close()">Knjige</a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a mat-list-item routerLink="/casopisi" (click)="sidenav.close()">Časopisi</a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div >
+            <button (click)="sidenav.toggle()" mat-button >
+                <mat-icon class="icon-display">menu</mat-icon>
+            </button>
+            </div>
+            <div>
+            <a routerLink="/" fxLayout="column" fxLayoutAlign="center center">
+                <img class="logo" src="assets/img/logo.png" >
+            </a>
+            </div>
+            <div class="meni" fxFlex fxLayoutAlign="end center" fxLayoutGap="30px">
+                
+                <a *ngIf="this.userService.currentUser.id != 0" routerLink="/korpa"><mat-icon> shopping_cart </mat-icon></a>
+                <a *ngIf="this.userService.currentUser.id == 0" routerLink="/login">Login</a>
+                <a *ngIf="this.userService.currentUser.id == 0" routerLink="/signup">Signup</a>  
+                <a *ngIf="this.userService.currentUser.id != 0"  (click)="openProfile(this.userService.currentUser.id)"> <mat-icon> account_circle</mat-icon> </a>
+                <a *ngIf="this.userService.currentUser.id != 0" (click)="logout()" routerLink="/"><mat-icon> logout </mat-icon></a>
+
+               
+            </div>
+        </mat-toolbar>
+        
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

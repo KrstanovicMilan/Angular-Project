@@ -1,0 +1,14 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+    <div class="prikaz" fxLayout="column" fxLayoutAlign="center center" >
+
+    <h1>{{nasCasopis.naziv}}</h1>
+    <h3>Domen: {{nasCasopis.domen}}</h3>
+    <h3>Broj strana:{{nasCasopis.brojStrana}} </h3>
+    <h3>Izdavac: {{nasCasopis.izdavac}}</h3>
+    <h3>Datum Izdavanja: {{nasCasopis.datumIzdavanja | date}}</h3>
+    <h3>Cena: {{nasCasopis.cena}}</h3>
+    <h3>Ocena: {{nasCasopis.recenzije}}/5</h3>
+    <button mat-raised-button color="primary" routerLink="/casopisi">Back</button>
+
+    </div>
+</section>

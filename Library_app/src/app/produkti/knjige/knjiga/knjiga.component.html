@@ -1,0 +1,14 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+    <div class="prikaz" fxLayout="column" fxLayoutAlign="center center" >
+
+    <h1>{{naseKnjige.naziv}}</h1>
+    <h3>Zanr: {{naseKnjige.zanr}}</h3>
+    <h3>Broj strana:{{naseKnjige.brojStrana}} </h3>
+    <h3>Izdavac: {{naseKnjige.izdavac}}</h3>
+    <h3>Datum Izdavanja: {{naseKnjige.datumIzdavanja | date}}</h3>
+    <h3>Cena: {{naseKnjige.cena}}</h3>
+    <h3>Ocena: {{naseKnjige.recenzije}}/5</h3>
+    <button mat-raised-button color="primary" routerLink="/knjige">Back</button>
+
+    </div>
+</section>

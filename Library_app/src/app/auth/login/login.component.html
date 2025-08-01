@@ -1,0 +1,31 @@
+<section fxLayoutAlign="center center" >
+    <form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onSubmit(f)"
+    fxLayoutGap="20px" #f="ngForm" >
+    
+        <h1>Prijavite se</h1>
+    
+        <mat-form-field>
+            <input type="email" placeholder="Email" matInput ngModel required name="email"  
+            #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">
+                Field should not be empty
+            </mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">
+                Please use the correct email format/ adress.
+            </mat-error>
+
+        
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="password" placeholder="Password" matInput ngModel name="password" required minlength="8"
+            #passInput="ngModel">
+            <mat-hint align="end">
+                {{passInput.value?.length}} / 8
+            </mat-hint>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary"   [disabled]="f.invalid">Submit</button>
+    </form>
+     
+</section>

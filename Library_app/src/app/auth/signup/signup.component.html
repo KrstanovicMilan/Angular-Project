@@ -1,0 +1,49 @@
+<section fxLayoutAlign="center center">
+    <form fxLayout="column" fxLayoutAlign="center center"  
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+    
+        <h1>Kreirajte nalog</h1>
+        
+        <mat-form-field>
+            <input type="text" placeholder="Ime" matInput ngModel required name="ime">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" placeholder="Prezime" matInput ngModel required name="prezime">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" placeholder="Telefon" matInput ngModel required name="telefon">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" placeholder="Adresa" matInput ngModel required name="adresa">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="email" placeholder="Email" matInput ngModel required name="email" #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">
+                Field should not be empty
+            </mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">
+                
+                Please use the correct email format/ adress.
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field hintLabel="Please enter min 8 caracter">
+            <input type="password" placeholder="Password" matInput ngModel required name="password"
+             minlength="8" #passInput="ngModel">
+            <mat-hint align="end">
+                {{passInput.value?.length}} / 8
+            </mat-hint>
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Submit</button>
+
+        <mat-label *ngIf="errorExists">{{ errorText }}</mat-label>
+
+        <a routerLink="/login">Go to login.</a>
+    </form>
+    
+</section>

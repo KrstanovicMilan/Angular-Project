@@ -1,0 +1,25 @@
+.books{
+    height: 450px;
+    border-radius: 40px;
+    margin-top: 80px;
+    margin-right: 60px;
+    width: 450px;
+}
+
+h1{
+    font-size: 40px;
+    margin-left: 350px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.welcome{
+    margin-top: 80px;
+}
+.paragraf{
+    margin-left: 100px;
+    margin-top: 50px;
+    font-size: 20px;
+    text-align: justify;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
